@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            background-image: url('2.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="table"></div>
+    </div>
+
+    <script>
+        
+        function generateTable() {
+            var num1, num2;
+            
+            do {
+                num1 = parseInt(prompt("Enter the first number (between 2 and 10):"));
+                if (isNaN(num1) || num1 < 2 || num1 > 10) {
+                    alert("Please enter a number between 2 and 10.");
+                }
+            } while (isNaN(num1) || num1 < 2 || num1 > 10);
+
+            do {
+                num2 = parseInt(prompt("Enter the second number (between 2 and 10):"));
+                if (isNaN(num2) || num2 < 2 || num2 > 10) {
+                    alert("Please enter a number between 2 and 10.");
+                }
+            } while (isNaN(num2) || num2 < 2 || num2 > 10);
+            
+            var table = "<h2>Multiplication Table:</h2><table border='1'><tr><th> x </th>";
+
+            for (var i = 1; i <= num2; i++) {
+                table += "<th>" + i + "</th>";
+            }
+
+            table += "</tr>";
+
+            for (var i = 1; i <= num1; i++) {
+                table += "<tr><th>" + i + "</th>";
+                for (var j = 1; j <= num2; j++) {
+                table += "<td>" + (i * j) + "</td>";
+                }
+                table += "</tr>";
+            }
+        
+            table += "</table>";
+
+            document.getElementById("table").innerHTML = table;
+        }
+
+        generateTable();
+
+    </script>
+
+</body>
+</html>
